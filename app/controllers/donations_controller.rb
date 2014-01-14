@@ -78,7 +78,7 @@ class DonationsController < ApplicationController
 
 	def complete
 
-		Stripe.api_key = "sk_test_h41Izsyq3p3hpxOXtGkf6XVb"
+		# Stripe.api_key = "sk_test_h41Izsyq3p3hpxOXtGkf6XVb"
 
 		@donation = Donation.find(params[:id])
 

@@ -15,12 +15,6 @@
   <%= @donation.comment %>
 </p>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @donation.completed %>
-</p>
-
-
 <% if @donation.completed == false%>
 	<%= form_tag "/donations/#{@donation.id}/complete" do %>
 		<script

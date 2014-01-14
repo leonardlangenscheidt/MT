@@ -39,7 +39,7 @@
 
 <h1>Completed donations</h1>
 
-<p>Completed so far: <%=@amounts.sum%></p>
+<p>Completed so far: <%= @amounts.sum/100 %>.<%= @amounts.sum%100 %></p>
 
 <table>
 	<thead>
@@ -47,7 +47,6 @@
 			<th>Amount</th>
 			<th>Name</th>
 			<th>Comment</th>
-			<th>Completed</th>
 			<%if signed_in? && current_admin.id<3%>
 				<th></th>
 				<th></th>
@@ -63,7 +62,6 @@
 					<td><%= donation.amount/100 %>.<%= donation.amount%100 %></td>
 					<td><%= donation.name %></td>
 					<td><%= donation.comment %></td>
-					<td><%= donation.completed %></td>
 					<%if signed_in? && current_admin.id<3%>
 						<td><%= link_to 'Show', donation %></td>
 						<td><%= link_to 'Complete', "/donations/#{donation.id}/mc", method: :post, data: { confirm: 'Are you sure?' } %></td>

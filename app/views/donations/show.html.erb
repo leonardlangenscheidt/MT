@@ -2,7 +2,7 @@
 
 <p>
   <strong>Amount:</strong>
-  <%= @donation.amount %>
+  <%= @donation.amount/100 %>.<%= @donation.amount%100 %>
 </p>
 
 <p>
@@ -27,6 +27,7 @@
 			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
 			data-amount="<%=((@donation.amount+30)/0.971).round%>"
+			data-currency="EUR"
 			data-name="Maxi & Tiffy"
 			data-description="Your donation"
 			data-image="/128x128.png">

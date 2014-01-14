@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 1.2'
 
 # stripe payments
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+#forms
+gem 'simple_form'
+#users
+gem 'devise'
 
 
 group :doc do

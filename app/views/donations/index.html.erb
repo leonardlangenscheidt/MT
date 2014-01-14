@@ -1,31 +1,77 @@
-<h1>Listing donations</h1>
+<%if signed_in? && current_admin.id<3%>
+<h1>Open donations</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Name</th>
-      <th>Comment</th>
-      <th>Completed</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Amount</th>
+			<th>Name</th>
+			<th>Comment</th>
+			<th>Completed</th>
+			<%if signed_in? && current_admin.id<3%>
+				<th></th>
+				<th></th>
+				<th></th>
+			<%end%>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @donations.each do |donation| %>
-      <tr>
-        <td><%= donation.amount %></td>
-        <td><%= donation.name %></td>
-        <td><%= donation.comment %></td>
-        <td><%= donation.completed %></td>
-        <td><%= link_to 'Show', donation %></td>
-        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-        <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @donations.each do |donation| %>
+			<%if donation.completed==false%>
+				<tr>
+					<td><%= donation.amount/100 %>.<%= donation.amount%100 %></td>
+					<td><%= donation.name %></td>
+					<td><%= donation.comment %></td>
+					<td><%= donation.completed %></td>
+					<%if signed_in? && current_admin.id<3%>
+						<td><%= link_to 'Show', donation %></td>
+						<td><%= link_to 'Complete', "/donations/#{donation.id}/mc", method: :post, data: { confirm: 'Are you sure?' } %></td>
+						<td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<%end%>
+				</tr>
+			<%end%>
+		<% end %>
+	</tbody>
+</table>
+<%end%>
+<br><br><br>
+<h1>Completed donations</h1>
+
+<p>Completed so far: <%=@amounts.sum%></p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Amount</th>
+			<th>Name</th>
+			<th>Comment</th>
+			<th>Completed</th>
+			<%if signed_in? && current_admin.id<3%>
+				<th></th>
+				<th></th>
+				<th></th>
+			<%end%>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @donations.each do |donation| %>
+			<%if donation.completed==true%>
+				<tr>
+					<td><%= donation.amount/100 %>.<%= donation.amount%100 %></td>
+					<td><%= donation.name %></td>
+					<td><%= donation.comment %></td>
+					<td><%= donation.completed %></td>
+					<%if signed_in? && current_admin.id<3%>
+						<td><%= link_to 'Show', donation %></td>
+						<td><%= link_to 'Complete', "/donations/#{donation.id}/mc", method: :post, data: { confirm: 'Are you sure?' } %></td>
+						<td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<%end%>
+				</tr>
+			<%end%>
+		<% end %>
+	</tbody>
 </table>
 
 <br>

@@ -1,8 +1,10 @@
 MT::Application.routes.draw do
+  devise_for :admins
   resources :donations
 
   root 'donations#index'
 
+  match 'donations/:id/mc' => 'donations#manual_complete', :via => [:post]
   match 'donations/:id/complete' => 'donations#complete', :via => [:post]
   # match 'orders/:id/update' => 'orders#update', :via => [:patch]
 

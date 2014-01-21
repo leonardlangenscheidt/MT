@@ -2,7 +2,9 @@ MT::Application.routes.draw do
   devise_for :admins
   resources :donations
 
-  root 'donations#index'
+  root 'pages#home'
+  get '/about' => 'pages#about'
+  get '/thank' => 'pages#thank'
 
   match 'donations/:id/mc' => 'donations#manual_complete', :via => [:post]
   match 'donations/:id/complete' => 'donations#complete', :via => [:post]

@@ -1,44 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="redbox center">
+	<h1>Payment Method</h1>
+	<table id="showtable">
+		<tbody>
+			<tr><th>Name</th><td><%= @donation.name %></td></tr>
+			<tr><th>Amount</th><td><%= @donation.amount/100 %>.<%= @donation.amount%100 %></td></tr>
+			<tr><th>Comment</th><td><%= @donation.comment %></td></tr>
+		</tbody>
+	</table>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @donation.amount/100 %>.<%= @donation.amount%100 %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @donation.name %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @donation.comment %>
-</p>
-
-<% if @donation.completed == false%>
-	<%= form_tag "/donations/#{@donation.id}/complete" do %>
-		<script
-			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
-			data-amount="<%=((@donation.amount+30)/0.971).round%>"
-			data-currency="EUR"
-			data-name="Maxi & Tiffy"
-			data-description="Your donation"
-			data-image="/128x128.png">
-		</script>
+	<% if @donation.completed == false%>
+		<%= form_tag "/donations/#{@donation.id}/complete" do %>
+			<script
+				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
+				data-amount="<%=((@donation.amount+30)/0.971).round%>"
+				data-currency="EUR"
+				data-name="Maxi & Tiffy"
+				data-description="Your donation"
+				data-image="/128x128.png">
+			</script>
+		<%end%>
 	<%end%>
-<%end%>
 
-	<!-- <form action="donations#complete" method="POST">
-		<script
-			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
-			data-amount="<%=((@donation.amount+30)/0.971).round%>"
-			data-name="Maxi & Tiffy"
-			data-description="Your donation"
-			data-image="/128x128.png">
-		</script>
-	</form> -->
+		<!-- <form action="donations#complete" method="POST">
+			<script
+				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
+				data-amount="<%=((@donation.amount+30)/0.971).round%>"
+				data-name="Maxi & Tiffy"
+				data-description="Your donation"
+				data-image="/128x128.png">
+			</script>
+		</form> -->
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+	<%= link_to 'Edit', edit_donation_path(@donation) %> |
+	<%= link_to 'Back', donations_path %>
+</div>

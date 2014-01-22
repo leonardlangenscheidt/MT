@@ -33,7 +33,7 @@ class DonationsController < ApplicationController
 	def create
 		@donation = Donation.new(
 			:amount => donation_params[:amount].to_f*100.to_i,
-			:name => donation_params[:name],
+			:name => donation_params[:name].capitalize,
 			:comment => donation_params[:comment],
 			:completed => false
 			)
@@ -53,7 +53,7 @@ class DonationsController < ApplicationController
 	# PATCH/PUT /donations/1.json
 	def update
 		@donation.amount = donation_params[:amount].to_f*100.to_i
-		@donation.name = donation_params[:name]
+		@donation.name = donation_params[:name].capitalize
 		@donation.comment = donation_params[:comment]
 		respond_to do |format|
 			if @donation.save
@@ -77,9 +77,6 @@ class DonationsController < ApplicationController
 	end
 
 	def complete
-
-		# Stripe.api_key = "sk_test_h41Izsyq3p3hpxOXtGkf6XVb"
-
 		@donation = Donation.find(params[:id])
 
 		# stripe documentation
@@ -88,7 +85,7 @@ class DonationsController < ApplicationController
 				:amount => ((@donation.amount+30)/0.971).round,
 				:currency => "eur",
 				:card => params[:stripeToken],
-				:description => "Thank you for your donation."
+				:description => "Thank you for your donation for our travel plans! Maxi & Tiffy."
 			)
 		rescue Stripe::CardError => stripeerror
 		end
@@ -97,7 +94,7 @@ class DonationsController < ApplicationController
 			@donation.completed = true
 			@donation.save
 			flash[:notice] = "Successfully completed donation! Thank you!"
-			redirect_to "/donations/#{@donation.id}"
+			redirect_to "/thank"
 		else
 			flash[:notice] = "Sorry. Something went wrong. Error: #{stripeerror}"
 			redirect_to "/donations/#{@donation.id}"

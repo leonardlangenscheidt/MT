@@ -1,14 +1,18 @@
-<h1>Editing donation</h1>
+<div class="redbox center">
+	<h1>New contribution</h1>
 
-<%= simple_form_for(@donation) do |f| %>
-  <%= f.error_notification %>
+	<%= simple_form_for(@donation, html: { class: "form"}) do |f| %>
 
-  <%= f.input :amount, as: :string, :input_html => { :value => "#{@donation.amount/100}.#{@donation.amount%100}" } %>
-  <%= f.input :name %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
+	  	<%= f.error_notification %>
 
-<% end %>
+	  	<%= f.input :name %>
+		<%= f.input :amount, as: :string, :input_html => { :value => "#{@donation.amount/100}.#{@donation.amount%100}" } %>
+	  	<%= f.input :comment, as: :string, input_html: { class: 'commentfield', maxlength: 140 } %>
 
-<%= link_to 'Show', @donation %> |
-<%= link_to 'Back', donations_path %>
+	  	<div>
+			<%= link_to 'Back', root_path, class: "back" %><%= f.button :submit, 'Continue', id: 'submit', class: 'redbutton'%>
+		</div>
+	<% end %>
+
+
+</div>

@@ -4,6 +4,5 @@ class PagesController < ApplicationController
 	def about
 	end
 	def thank
-		@donation = Donation.find(params[:id])
 	end
 end

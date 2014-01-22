@@ -29,6 +29,7 @@ $green: #AAD025;
 	margin-top:50px;
 	border: $red 3px solid;
 	width: 500px;
+	height: 259px;
 	padding:15px;
 	font-size:18px;
 	h1 {
@@ -40,10 +41,14 @@ $green: #AAD025;
 		margin:-25px auto 15px;
 		background-color:white;
 	}
+/*	* {
+		border: 1px black solid;
+	}*/
 }
 
 .form {
 	* {
+		font-size:18px;
 		padding:5px;
 	}
 	label {
@@ -56,10 +61,10 @@ $green: #AAD025;
 	}
 }
 
-#commentfield {
+.commentfield {
 	text-align:left;
-	height:50px;
-	font-size:16px;
+	height:72px;
+	font-size:16px !important;
 }
 
 .redbutton {
@@ -68,6 +73,15 @@ $green: #AAD025;
 	border: $red 2px solid;
 	font-family: 'Pinyon Script', cursive;
 	font-size:1.3em;
+	height:39px;
+	display:inline-block;
+}
+
+.back {
+	display:inline-block;
+	width:100px;
+	padding:5px;
+
 }
 
 #submit {
@@ -76,19 +90,44 @@ $green: #AAD025;
 	left:165px;
 }
 
+.stripebutton {
+	width: 170px;
+	position:relative;
+	left:25px;
+}
+
+.transfer {
+	width: 170px;
+	position:relative;
+	left:15px;
+	display: inline-block;
+	a {
+		text-decoration: none;
+		color: $red;
+		font-family: 'Pinyon Script', cursive;
+	}
+}
+
 
 #showtable {
+	margin-left:5px;
 	* {
 		padding:5px;
 		font-size:18px;
+		font-family: 'Bentham', serif;
 	}
 	th {
-		display:inline-block;
+		vertical-align:middle;
+		display: table-cell;
+		text-align: left;
 		width:100px;
 	}
 	td {
 		width:350px;
 		text-align:center;
+	}
+	tr {
+		height:50px;
 	}
 }
 

@@ -1,38 +1,47 @@
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
 <div class="redbox center">
 	<h1>Payment Method</h1>
 	<table id="showtable">
 		<tbody>
-			<tr><th>Name</th><td><%= @donation.name %></td></tr>
-			<tr><th>Amount</th><td><%= @donation.amount/100 %>.<%= @donation.amount%100 %></td></tr>
-			<tr><th>Comment</th><td><%= @donation.comment %></td></tr>
+			<tr><th>* Name</th><td><%= @donation.name %></td></tr>
+			<tr><th>* Amount</th><td><%= @donation.amount/100 %>.<%= (@donation.amount%100-@donation.amount%10)/10 %><%= @donation.amount%10%> €</td></tr>
+			<tr style="height:50px"><th>Comment</th><td class="commentfield"><%= @donation.comment %></td></tr>
 		</tbody>
 	</table>
 
-	<% if @donation.completed == false%>
-		<%= form_tag "/donations/#{@donation.id}/complete" do %>
-			<script
-				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
-				data-amount="<%=((@donation.amount+30)/0.971).round%>"
-				data-currency="EUR"
-				data-name="Maxi & Tiffy"
-				data-description="Your donation"
-				data-image="/128x128.png">
-			</script>
-		<%end%>
-	<%end%>
 
-		<!-- <form action="donations#complete" method="POST">
-			<script
-				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
-				data-amount="<%=((@donation.amount+30)/0.971).round%>"
-				data-name="Maxi & Tiffy"
-				data-description="Your donation"
-				data-image="/128x128.png">
-			</script>
-		</form> -->
+	<div>
+			<br><%= link_to 'Back', edit_donation_path(@donation), class: "back" %>
+			<button class= "redbutton transfer"><%=link_to 'Bank Transfer', '#'%></button>
+			<button id="stripeButton" class='redbutton stripebutton'>Credit Card</button>
 
-	<%= link_to 'Edit', edit_donation_path(@donation) %> |
-	<%= link_to 'Back', donations_path %>
+
+	</div>
+
+
 </div>
+
+
+
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_IUlSxzYadeI6cKE1CknW4kjd',
+    image: '/square-image.png',
+    token: function(token, args) {
+      // Use the token to create the charge with a server-side script.
+    }
+  });
+
+  document.getElementById('stripeButton').addEventListener('click', function(e) {
+    // Open Checkout with further options
+    handler.open({
+      name: 'Maxi & Tiffy',
+      description: 'Your donation',
+      amount: "<%=((@donation.amount+30)/0.971).round%>",
+      currency: "EUR"
+    });
+    e.preventDefault();
+  });
+</script>

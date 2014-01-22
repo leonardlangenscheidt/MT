@@ -7,10 +7,10 @@
 
 	  	<%= f.input :name %>
 	  	<%= f.input :amount, as: :string %>
-	  	<%= f.input :comment, as: :string, input_html: { id: 'commentfield' } %>
+	  	<%= f.input :comment, as: :string, input_html: { class: 'commentfield', maxlength: 140 } %>
 
 	  	<div>
-			<%= link_to 'Back', root_path, style: "display:inline-block;width:100px" %><%= f.button :submit, id: 'submit', class: 'redbutton'%>
+			<%= link_to 'Back', root_path, class: "back" %><%= f.button :submit, 'Continue', id: 'submit', class: 'redbutton'%>
 		</div>
 	<% end %>
 

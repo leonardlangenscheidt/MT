@@ -15,7 +15,7 @@
 			<br><%= link_to 'Back', edit_donation_path(@donation), class: "back" %>
 			<button class= "redbutton transfer"><%=link_to 'Bank Transfer', '#'%></button>
 <!-- 			<button id="stripeButton" class='redbutton stripebutton'>Credit Card</button> -->
-			<button class='redbutton stripebutton' action="/donations/<%=@donation.id%>/complete" method="POST">
+			<form action="/donations/<%=@donation.id%>/complete" method="POST">
 			  <script
 			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			    data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"

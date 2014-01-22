@@ -1,4 +1,4 @@
-<script src="https://checkout.stripe.com/checkout.js"></script>
+<!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
 
 <div class="redbox center">
 	<h1>Payment Method</h1>
@@ -14,34 +14,43 @@
 	<div>
 			<br><%= link_to 'Back', edit_donation_path(@donation), class: "back" %>
 			<button class= "redbutton transfer"><%=link_to 'Bank Transfer', '#'%></button>
-			<button id="stripeButton" class='redbutton stripebutton'>Credit Card</button>
-
+<!-- 			<button id="stripeButton" class='redbutton stripebutton'>Credit Card</button> -->
+			<button class='redbutton stripebutton' action="/donations/<%=@donation.id%>/complete" method="POST">
+			  <script
+			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			    data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
+			    data-image="/square-image.png"
+			    data-name="Demo Site"
+			    data-description="2 widgets ($20.00)"
+			    data-amount="2000">
+			  </script>
+			</form>
 
 	</div>
 
 
 </div>
 
-
+<!--
 
 
 <script>
-  var handler = StripeCheckout.configure({
-    key: 'pk_test_IUlSxzYadeI6cKE1CknW4kjd',
-    image: '/square-image.png',
-    token: function(token, args) {
-      // Use the token to create the charge with a server-side script.
-    }
-  });
+	var handler = StripeCheckout.configure({
+		key: 'pk_test_IUlSxzYadeI6cKE1CknW4kjd',
+		image: '/square-image.png',
+		token: function(token, args) {
+		}
+	});
 
-  document.getElementById('stripeButton').addEventListener('click', function(e) {
-    // Open Checkout with further options
-    handler.open({
-      name: 'Maxi & Tiffy',
-      description: 'Your donation',
-      amount: "<%=((@donation.amount+30)/0.971).round%>",
-      currency: "EUR"
-    });
-    e.preventDefault();
-  });
+	document.getElementById('stripeButton').addEventListener('click', function(e) {
+		// Open Checkout with further options
+		handler.open({
+			name: 'Maxi & Tiffy',
+			description: 'Your donation',
+			amount: "<%=((@donation.amount+30)/0.971).round%>",
+			currency: "EUR"
+		});
+		e.preventDefault();
+	});
 </script>
+ -->

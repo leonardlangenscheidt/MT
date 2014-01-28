@@ -153,7 +153,7 @@ $green: #AAD025;
 
 #progress {
  	width: 300px;
- 	border: 1px solid black;
+ 	border: 2px solid $red;
  	position: relative;
  	padding: 3px;
 	margin: 0px auto;
@@ -167,7 +167,7 @@ $green: #AAD025;
 
 #bar {
  	height: 20px;
- 	background-color: $green;
+ 	background-color: $red;
 }
 
 body {

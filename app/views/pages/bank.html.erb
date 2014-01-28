@@ -1,0 +1,32 @@
+<div class='redbox center'>
+	<h1 style="width:250px">Bank Transfer</h1>
+	<div style="padding-left:40px">
+		<table id="smalltable">
+			<tbody>
+				<tr><th>Bank</th><td>Hypo Vereinsbank</td></tr>
+				<tr><th>Recipient</th><td>Oktay Halman</td></tr>
+				<tr><th>IBAN</th><td>DE13700202700657590746</td></tr>
+				<tr><th>BIC</th><td>HYVEDEMMXX</td></tr>
+				<tr><th>Reference</th><td>MT Journey</td></tr>
+			</tbody>
+		</table>
+		<div>
+			<%= link_to 'Back', donation_path(@donation), class: "back" %><button class= "redbutton complete"><%=link_to 'Complete', "/donations/#{@donation.id}/bcomplete", method: :post%></button>
+		</div>
+
+	</div>
+</div>
+<!--
+
+Bank
+recipient
+IBAN
+BIC
+reference
+
+Hypo Vereinsbank
+Oktay halman
+DE13700202700657590746
+HYVEDEMMXX
+MT Journey
+ -->

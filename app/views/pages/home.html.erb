@@ -1,1 +1,10 @@
+
+
 <%=image_tag 'world.png', class: "center", style: "width:400px" %>
+
+<div id="progress">
+    <span id="percent"><%= @perc.to_i %>%</span>
+    <div id="bar" style="width: <%=@perc%>%;"></div>
+</div>
+<p style="text-align:center">Raised so far: €<%= @amounts.sum/100 %>.<%= @amounts.sum%100 %> / €<%= @goal/100 %>.<%= @goal%100 %></p>
+

@@ -5,9 +5,12 @@ MT::Application.routes.draw do
   root 'pages#home'
   get '/about' => 'pages#about'
   get '/thank' => 'pages#thank'
+  get '/bank' => 'pages#bank'
+  get '/help' => 'pages#help'
 
-  match 'donations/:id/mc' => 'donations#manual_complete', :via => [:post]
+  match 'donations/:id/bcomplete' => 'donations#bank_complete', :via => [:post]
   match 'donations/:id/complete' => 'donations#complete', :via => [:post]
+  match 'donations/:id/verify' => 'donations#verify', :via => [:post]
   # match 'orders/:id/update' => 'orders#update', :via => [:patch]
 
   # get '/donations' => 'donations#index'

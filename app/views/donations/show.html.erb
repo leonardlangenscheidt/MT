@@ -1,8 +1,8 @@
 <!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
 
 <div class="redbox center">
-	<h1>Payment Method</h1>
-	<table id="showtable">
+	<h1 style="width:270px">Payment Method</h1>
+	<table>
 		<tbody>
 			<tr><th>* Name</th><td><%= @donation.name %></td></tr>
 			<tr><th>* Amount</th><td><%= @donation.amount/100 %>.<%= (@donation.amount%100-@donation.amount%10)/10 %><%= @donation.amount%10%> €</td></tr>
@@ -13,19 +13,22 @@
 
 	<div>
 			<br><%= link_to 'Back', edit_donation_path(@donation), class: "back" %>
-			<button class= "redbutton transfer"><%=link_to 'Bank Transfer', '#'%></button>
-<!-- 			<button id="stripeButton" class='redbutton stripebutton'>Credit Card</button> -->
-			<form action="/donations/<%=@donation.id%>/complete" method="POST">
-			  <script
-			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			    data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
-			    data-image="/square-image.png"
-			    data-name="Maxi & Tiffy"
-			    data-description="Your donation"
-			    data-amount="<%=((@donation.amount+30)/0.971).round%>"
-			    data-currency="EUR">
-			  </script>
-			</form>
+			<button class= "redbutton bank"><%=link_to 'Bank Transfer', bank_path(:id=>@donation.id)%></button>
+			<%= form_tag "/donations/#{@donation.id}/complete", :style => "display:inline" do %>
+				<button class="redbutton stripebutton">
+					<div style="display:none">
+						<script
+						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						data-key="pk_test_IUlSxzYadeI6cKE1CknW4kjd"
+						data-amount="<%=((@donation.amount+30)/0.971).round%>"
+						data-currency="EUR"
+						data-name="Maxi & Tiffy"
+						data-description="Safe Travels"
+						data-image="/128x128.png">
+						</script>
+					</div>Credit Card
+				</button>
+			<%end%>
 	</div>
 
 

@@ -6,7 +6,7 @@ $green: #AAD025;
 	font-family: 'Bentham', serif;
 }
 
-#nav {
+.nav {
 	text-align:center;
 	padding-left:0px;
 	li {
@@ -36,14 +36,42 @@ $green: #AAD025;
 		text-align:center;
 		color:$red;
 		font-family: 'Pinyon Script', cursive;
-		width:270px;
 		position:relative;
 		margin:-25px auto 15px;
 		background-color:white;
 	}
-/*	* {
-		border: 1px black solid;
-	}*/
+	p {
+		text-align:center;
+		font-size:24px;
+		line-height:30px;
+		font-family: 'Bentham', serif;
+	}
+	table {
+		margin-left:5px;
+		* {
+			padding:5px;
+			font-size:18px;
+			font-family: 'Bentham', serif;
+		}
+		th {
+			vertical-align:middle;
+			display: table-cell;
+			text-align: left;
+			width:100px;
+		}
+		td {
+			width:350px;
+			text-align:center;
+		}
+		tr {
+			height:50px;
+		}
+	}
+}
+
+.large {
+	width: 750px;
+	height: 388px;
 }
 
 .form {
@@ -75,6 +103,11 @@ $green: #AAD025;
 	font-size:1.3em;
 	height:39px;
 	display:inline-block;
+	a {
+		text-decoration: none;
+		color: $red;
+		font-family: 'Pinyon Script', cursive;
+	}
 }
 
 .back {
@@ -96,41 +129,46 @@ $green: #AAD025;
 	left:25px;
 }
 
-.transfer {
+.bank {
 	width: 170px;
 	position:relative;
 	left:15px;
 	display: inline-block;
-	a {
-		text-decoration: none;
-		color: $red;
-		font-family: 'Pinyon Script', cursive;
-	}
 }
 
+.complete {
+	width: 170px;
+	position:relative;
+	left:90px;
+	display: inline-block;
+}
 
-#showtable {
-	margin-left:5px;
-	* {
-		padding:5px;
-		font-size:18px;
-		font-family: 'Bentham', serif;
-	}
-	th {
-		vertical-align:middle;
-		display: table-cell;
-		text-align: left;
-		width:100px;
-	}
-	td {
-		width:350px;
-		text-align:center;
-	}
+#smalltable {
 	tr {
-		height:50px;
+		height:40px;
 	}
 }
 
+/*progress bar*/
+
+#progress {
+ 	width: 300px;
+ 	border: 1px solid black;
+ 	position: relative;
+ 	padding: 3px;
+	margin: 0px auto;
+	display: block;
+}
+
+#percent {
+ 	position: absolute;
+ 	left: 50%;
+}
+
+#bar {
+ 	height: 20px;
+ 	background-color: $green;
+}
 
 body {
 	background-color: #fff;
@@ -200,3 +238,5 @@ div {
 		list-style: square;
 	}
 }
+
+

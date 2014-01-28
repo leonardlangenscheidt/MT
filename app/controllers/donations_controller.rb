@@ -4,12 +4,10 @@ class DonationsController < ApplicationController
 	# GET /donations
 	# GET /donations.json
 	def index
-		@donations = Donation.all
-		@amounts = []
-		@donations.each do |d|
-			if d.completed == true
-				@amounts.push(d.amount)
-			end
+		if signed_in? && current_admin.id<3
+			@donations = Donation.all
+		else
+			redirect_to root_path
 		end
 	end
 
@@ -35,7 +33,8 @@ class DonationsController < ApplicationController
 			:amount => donation_params[:amount].to_f*100.to_i,
 			:name => donation_params[:name].capitalize,
 			:comment => donation_params[:comment],
-			:completed => false
+			:completed => false,
+			:verified => false
 			)
 
 		respond_to do |format|
@@ -78,7 +77,7 @@ class DonationsController < ApplicationController
 
 	def complete
 		@donation = Donation.find(params[:id])
-
+		Stripe.api_key = "sk_test_h41Izsyq3p3hpxOXtGkf6XVb"
 		# stripe documentation
 		begin
 			charge = Stripe::Charge.create(
@@ -92,6 +91,7 @@ class DonationsController < ApplicationController
 
 		if charge
 			@donation.completed = true
+			@donation.verified = true
 			@donation.save
 			flash[:notice] = "Successfully completed donation! Thank you!"
 			redirect_to "/thank"
@@ -101,16 +101,18 @@ class DonationsController < ApplicationController
 		end
 	end
 
-	def manual_complete
-		if current_admin.id<3
-			@donation = Donation.find(params[:id])
-			@donation.completed = true
-			@donation.save
-			redirect_to donations_path
-		else
-			flash[:notice] = "Please don't mess around with our backend."
-			redirect_to donations_path
-		end
+	def bank_complete
+		@donation = Donation.find(params[:id])
+		@donation.completed = true
+		@donation.save
+		redirect_to thank_path
+	end
+
+	def verify
+		@donation = Donation.find(params[:id])
+		@donation.verified = true
+		@donation.save
+		redirect_to donations_path
 	end
 
 	private
@@ -121,6 +123,6 @@ class DonationsController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def donation_params
-			params.require(:donation).permit(:amount, :name, :comment, :completed)
+			params.require(:donation).permit(:amount, :name, :comment, :completed, :verified)
 		end
 end

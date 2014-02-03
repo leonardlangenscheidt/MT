@@ -24,7 +24,7 @@
 						data-currency="EUR"
 						data-name="Maxi & Tiffy"
 						data-description="Safe Travels"
-						data-image="/assets/stripepic.png">
+						data-image="https://dl.dropboxusercontent.com/u/14748113/stripepic.png">
 						</script>
 					</div>Credit Card
 				</button>
@@ -43,6 +43,6 @@
 		AND EVERYTHING REMAINS ANONYMOUS.
 	</p>
 	<p>
-		CREDIT CARD FEE: XXX
+		CREDIT CARD FEE: <%=((((@donation.amount+30)/0.971).round-@donation.amount)/100).round%>.<%=(((@donation.amount+30)/0.971).round-@donation.amount)%100%> € (2.9% + 0.30 €)
 	</p>
 </div>

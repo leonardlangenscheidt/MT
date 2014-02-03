@@ -4,9 +4,9 @@
 	<h1 style="width:270px">Payment Method</h1>
 	<table>
 		<tbody>
-			<tr><th>* Name</th><td><%= @donation.name %></td></tr>
-			<tr><th>* Amount</th><td><%= @donation.amount/100 %>.<%= (@donation.amount%100-@donation.amount%10)/10 %><%= @donation.amount%10%> €</td></tr>
-			<tr style="height:50px"><th>Comment</th><td class="commentfield"><%= @donation.comment %></td></tr>
+			<tr><td class="left">* NAME</td><td class="right"><%= @donation.name %></td></tr>
+			<tr><td class="left">* AMOUNT</td><td class="right"><%= @donation.amount/100 %>.<%= (@donation.amount%100-@donation.amount%10)/10 %><%= @donation.amount%10%> €</td></tr>
+			<tr style="height:50px"><td class="left">COMMENT</td><td class="right commentfield"><%= @donation.comment %></td></tr>
 		</tbody>
 	</table>
 

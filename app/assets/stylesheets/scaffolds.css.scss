@@ -53,14 +53,14 @@ $green: #AAD025;
 			font-size:18px;
 			font-family: 'Bentham', serif;
 		}
-		th {
+		.left {
 			vertical-align:middle;
 			display: table-cell;
 			text-align: left;
-			width:100px;
+			width:110px;
 		}
-		td {
-			width:350px;
+		.right {
+			width:340px;
 			text-align:center;
 		}
 		tr {
@@ -97,10 +97,10 @@ $green: #AAD025;
 	}
 	label {
 		display:inline-block;
-		width:100px;
+		width:110px;
 	}
 	input {
-		width:350px;
+		width:340px;
 		text-align:center;
 	}
 }
@@ -152,6 +152,11 @@ $green: #AAD025;
 	display: inline-block;
 }
 
+.widebutton {
+	width:160px;
+	display:block;
+}
+
 .complete {
 	width: 170px;
 	position:relative;
@@ -169,21 +174,21 @@ $green: #AAD025;
 
 #progress {
  	width: 300px;
- 	border: 2px solid $red;
+ 	border: 1px solid gray;
  	position: relative;
- 	padding: 3px;
+ 	padding: 2px;
 	margin: 0px auto;
 	display: block;
 }
 
 #percent {
  	position: absolute;
- 	left: 50%;
+ 	left: 800px;
 }
 
 #bar {
  	height: 20px;
- 	background-color: $red;
+ 	background-color: $green;
 }
 
 body {

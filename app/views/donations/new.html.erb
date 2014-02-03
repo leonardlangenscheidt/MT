@@ -5,9 +5,9 @@
 
 	  	<%= f.error_notification %>
 
-	  	<%= f.input :name %>
-	  	<%= f.input :amount, as: :string %>
-	  	<%= f.input :comment, as: :string, input_html: { class: 'commentfield', maxlength: 140 } %>
+	  	<%= f.input :name, label: 'NAME' %>
+	  	<%= f.input :amount, as: :string, label: 'AMOUNT' %>
+	  	<%= f.input :comment, as: :string, label: 'COMMENT', input_html: { class: 'commentfield', maxlength: 140 } %>
 
 	  	<div>
 			<%= link_to 'Back', root_path, class: "back" %><%= f.button :submit, 'Continue', id: 'submit', class: 'redbutton'%>

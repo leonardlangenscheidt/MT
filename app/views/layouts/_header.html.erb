@@ -3,10 +3,7 @@
 </div>
 <ul class="nav">
 	<li><%= link_to 'HOME', root_path %></li>
-
-	<li><%= link_to 'INFORMATION', about_path %></li>
-	<li><%= link_to 'SUPPORT', new_donation_path %></li>
-	<%if signed_in? && current_admin.id<3%>
-		<li><%= link_to 'Index', donations_path %></li>
-	<%end%>
+	<!-- <li><%= link_to 'INFORMATION', about_path %></li> -->
+	<li><%= link_to 'ABOUT', about_path %></li>
+	<li><%= link_to 'HELP', help_path %></li>
 </ul>

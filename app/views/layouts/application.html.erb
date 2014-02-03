@@ -11,10 +11,15 @@
 <body>
 
 <%if signed_in?%>
+	<%if current_admin.id<3%>
+		<%= link_to 'Index', donations_path %>
+	<%end%>
 	<%= link_to 'Sign Out', destroy_admin_session_path, method: :delete%>
 <%else%>
 	<%= link_to 'Admin Sign In', new_admin_session_path %>
 <%end%>
+
+
 
 <%= render 'layouts/header' %>
 

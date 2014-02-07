@@ -1,11 +1,11 @@
 
 <%=image_tag 'world.png', class: "center", style: "width:400px" %>
 
-<p id="percent"><%= @perc.to_i %>%</p>
-
-<div id="progress" style="margin-top:36px">
-
-    <div id="bar" style="width: <%=@perc%>%;"></div>
+<div class="center" style="margin-top:-20px">
+	<p id="percent"><%= @perc.to_i %>%</p>
+	<div id="progress" style="margin-top:-10px">
+		<div id="bar" style="width: <%=@perc%>%;"></div>
+	</div>
 </div>
 
 

@@ -6,13 +6,19 @@
 	  	<%= f.error_notification %>
 
 	  	<%= f.input :name, label: 'NAME' %>
-	  	<%= f.input :amount, as: :string, label: 'AMOUNT' %>
+	  	<%= f.input :amount, as: :string, label: 'AMOUNT', :input_html => { :value => " €" } %>
 	  	<%= f.input :comment, as: :string, label: 'COMMENT', input_html: { class: 'commentfield', maxlength: 140 } %>
 
 	  	<div>
 			<%= link_to 'Back', root_path, class: "back" %><%= f.button :submit, 'Continue', id: 'submit', class: 'redbutton'%>
 		</div>
 	<% end %>
+</div>
 
-
+<div class="textunder center">
+	<p>
+		YOUR CONTRIBUTION WILL BE ADMINISTERED
+		CONFIDENTIALLY BY THE BEST MAN OKTAY HALMAN
+		AND EVERYTHING REMAINS ANONYMOUS.
+	</p>
 </div>

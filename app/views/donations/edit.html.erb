@@ -7,13 +7,19 @@
 	  	<%= f.error_notification %>
 
 	  	<%= f.input :name %>
-		<%= f.input :amount, as: :string, :input_html => { :value => "#{@donation.amount/100}.#{@donation.amount%100}" } %>
+		<%= f.input :amount, as: :string, :input_html => { :value => "#{@donation.amount/100}.#{@donation.amount%100} €" } %>
 	  	<%= f.input :comment, as: :string, input_html: { class: 'commentfield', maxlength: 140 } %>
 
 	  	<div>
 			<%= link_to 'Back', root_path, class: "back" %><%= f.button :submit, 'Continue', id: 'submit', class: 'redbutton'%>
 		</div>
 	<% end %>
+</div>
 
-
+<div class="textunder center">
+	<p>
+		YOUR CONTRIBUTION WILL BE ADMINISTERED
+		CONFIDENTIALLY BY THE BEST MAN OKTAY HALMAN
+		AND EVERYTHING REMAINS ANONYMOUS.
+	</p>
 </div>

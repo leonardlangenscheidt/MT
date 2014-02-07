@@ -73,7 +73,7 @@ $green: #AAD025;
 	margin-top:30px;
 	width: 500px;
 	p {
-		color: $red;
+		color: gray;
 		text-align:center;
 		font-size:16px;
 		line-height:20px;
@@ -153,7 +153,7 @@ $green: #AAD025;
 }
 
 .widebutton {
-	width:160px;
+	width:240px;
 	display:block;
 }
 
@@ -182,8 +182,9 @@ $green: #AAD025;
 }
 
 #percent {
- 	position: absolute;
- 	left: 800px;
+	text-align:center;
+	padding-left:200px;
+
 }
 
 #bar {

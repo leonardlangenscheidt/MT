@@ -77,7 +77,6 @@ class DonationsController < ApplicationController
 
 	def complete
 		@donation = Donation.find(params[:id])
-		Stripe.api_key = "sk_test_h41Izsyq3p3hpxOXtGkf6XVb"
 		# stripe documentation
 		begin
 			charge = Stripe::Charge.create(

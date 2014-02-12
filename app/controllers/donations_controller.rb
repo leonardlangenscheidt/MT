@@ -94,7 +94,7 @@ class DonationsController < ApplicationController
 			@donation.verified = true
 			@donation.save
 			flash[:notice] = "Successfully completed donation! Thank you!"
-			redirect_to "/thank"
+			redirect_to "/thank?id=#{@donation.id}"
 		else
 			flash[:notice] = "Sorry. Something went wrong. Error: #{stripeerror}"
 			redirect_to "/donations/#{@donation.id}"
@@ -105,7 +105,7 @@ class DonationsController < ApplicationController
 		@donation = Donation.find(params[:id])
 		@donation.completed = true
 		@donation.save
-		redirect_to thank_path
+		redirect_to "/thank?id=#{@donation.id}"
 	end
 
 	def verify

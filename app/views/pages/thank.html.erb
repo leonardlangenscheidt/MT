@@ -1,8 +1,14 @@
 <div class='redbox center large'>
 	<h1 style="width:180px">Thank you</h1>
-	<%=image_tag 'thankyou2.png', class: "center", style: "margin-top:30px; width:450px" %>
+	<%=image_tag 'thankyou2.png', class: "center", style: "margin-top:30px; width:420px" %>
 
-	<p class="smaller">“ONE'S DESTINATION IS NEVER A PLACE, BUT A NEW WAY OF SEEING THINGS."</p>
-	<p class="smaller" style="font-style:italic"><small>– HENRY MILLER</small></p>
+	<p class="smaller">“ONE'S DESTINATION IS NEVER A PLACE, BUT A NEW WAY OF SEEING THINGS."<br><small>– HENRY MILLER</small></p>
+	<p class="smaller" style="font-style:italic"></p>
 
+	<div class="center" style="">
+		<div id="progress" style="margin-top:-10px">
+			<div id="bar" style="width: <%=@perc%>%;"></div>
+			<div id="bar2" style="width: <%=@perc-@change%>%;"></div>
+		</div>
+	</div>
 </div>

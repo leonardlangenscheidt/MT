@@ -37,12 +37,15 @@
 	<p>
 		PLEASE SELECT YOUR PAYMENT METHOD
 	</p>
-	<p>
+<!-- 	<p>
 		YOUR CONTRIBUTION WILL BE ADMINISTERED
 		CONFIDENTIALLY BY THE BEST MAN OKTAY HALMAN
 		AND EVERYTHING REMAINS ANONYMOUS.
-	</p>
+	</p> -->
 	<p>
 		CREDIT CARD FEE: <%=((((@donation.amount+30)/0.971).round-@donation.amount)/100).round%>.<%=(((@donation.amount+30)/0.971).round-@donation.amount)%100%> € (2.9% + 0.30 €)
+	</p>
+	<p>
+		SECURE CONNECTION - powered by Stripe
 	</p>
 </div>

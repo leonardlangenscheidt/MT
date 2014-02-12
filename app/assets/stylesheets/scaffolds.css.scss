@@ -176,6 +176,7 @@ $green: #AAD025;
  	width: 300px;
  	border: 1px solid gray;
  	position: relative;
+ 	height:20px;
  	padding: 2px;
 	margin: 0px auto;
 	display: block;
@@ -190,6 +191,15 @@ $green: #AAD025;
 #bar {
  	height: 20px;
  	background-color: $green;
+ 	position:absolute;
+ 	bottom:2px;
+}
+
+#bar2 {
+	height: 20px;
+ 	background-color: lighten( $green, 10% );
+ 	position:absolute;
+ 	bottom:2px;
 }
 
 body {

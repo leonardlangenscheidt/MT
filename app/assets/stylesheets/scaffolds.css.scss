@@ -126,6 +126,34 @@ $green: #AAD025;
 	}
 }
 
+.redbuttonspan {
+	display:none;
+}
+
+@-moz-document url-prefix() {
+    .toggle {
+        display: none !important;
+    }
+    .redbuttonspan {
+    	display: initial;
+    	padding-top:9px;
+	background-color:white;
+	color: $red;
+	border: $red 2px solid;
+	font-family: 'Pinyon Script', cursive;
+	font-size:1.3em;
+	height:26px;
+	display:inline-block;
+	text-align: center;
+	a {
+		text-decoration: none;
+		color: $red;
+		font-family: 'Pinyon Script', cursive;
+	}
+}
+}
+
+
 .back {
 	display:inline-block;
 	width:100px;
@@ -149,7 +177,6 @@ $green: #AAD025;
 	width: 170px;
 	position:relative;
 	left:15px;
-	display: inline-block;
 }
 
 .widebutton {
@@ -161,7 +188,6 @@ $green: #AAD025;
 	width: 170px;
 	position:relative;
 	left:90px;
-	display: inline-block;
 }
 
 #smalltable {

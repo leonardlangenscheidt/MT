@@ -13,7 +13,7 @@
 
 	<div>
 			<br><%= link_to 'Back', edit_donation_path(@donation), class: "back" %>
-			<button class= "redbutton bank toggle"><%=link_to 'Bank Transfer', bank_path(:id=>@donation.id)%></button>
+<!-- 			<button class= "redbutton bank toggle"><%=link_to 'Bank Transfer', bank_path(:id=>@donation.id)%></button> -->
 			<span class= "redbuttonspan bank"><%=link_to 'Bank Transfer', bank_path(:id=>@donation.id)%></span>
 			<%= form_tag "/donations/#{@donation.id}/complete", :style => "display:inline" do %>
 				<button class="redbutton stripebutton">

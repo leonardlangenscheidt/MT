@@ -12,9 +12,9 @@
 		</table>
 		<div>
 			<%= link_to 'Back', donation_path(@donation), class: "back" %>
-			<button class= "redbutton complete toggle">
+<!-- 			<button class= "redbutton complete toggle">
 				<%=link_to 'Complete', "/donations/#{@donation.id}/bcomplete", method: :post%>
-			</button>
+			</button> -->
 			<span class= "redbuttonspan complete">
 				<%=link_to 'Complete', "/donations/#{@donation.id}/bcomplete", method: :post%>
 			</span>

@@ -126,15 +126,12 @@ $green: #AAD025;
 	}
 }
 
-.redbuttonspan {
-	display:none;
-}
 
-@-moz-document url-prefix() {
+/*@-moz-document url-prefix() {
     .toggle {
         display: none !important;
-    }
-    .redbuttonspan {
+    }*/
+.redbuttonspan {
     	display: initial;
     	padding-top:9px;
 	background-color:white;
@@ -151,7 +148,7 @@ $green: #AAD025;
 		font-family: 'Pinyon Script', cursive;
 	}
 }
-}
+
 
 
 .back {

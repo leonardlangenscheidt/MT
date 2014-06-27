@@ -15,38 +15,8 @@
 			<br><%= link_to 'Back', edit_donation_path(@donation), class: "back" %>
 <!-- 			<button class= "redbutton bank toggle"><%=link_to 'Bank Transfer', bank_path(:id=>@donation.id)%></button> -->
 			<span class= "redbuttonspan bank"><%=link_to 'Bank Transfer', bank_path(:id=>@donation.id)%></span>
-			<%= form_tag "/donations/#{@donation.id}/complete", :style => "display:inline" do %>
-				<button class="redbutton stripebutton">
-					<div style="display:none">
-						<script
-						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-						data-key="pk_live_hwEmNIeSC3pHFstsZDfBOYwY"
-						data-amount="<%=((@donation.amount+30)/0.971).round%>"
-						data-currency="EUR"
-						data-name="Maxi & Tiffy"
-						data-description="Safe Travels"
-						data-image="https://dl.dropboxusercontent.com/u/14748113/stripepic.png">
-						</script>
-					</div>Credit Card
-				</button>
-			<%end%>
+
 	</div>
 
 
-</div>
-<div class="textunder center">
-	<p>
-		PLEASE SELECT YOUR PAYMENT METHOD
-	</p>
-<!-- 	<p>
-		YOUR CONTRIBUTION WILL BE ADMINISTERED
-		CONFIDENTIALLY BY THE BEST MAN OKTAY HALMAN
-		AND EVERYTHING REMAINS ANONYMOUS.
-	</p> -->
-	<p>
-		CREDIT CARD FEE: <%=((((@donation.amount+30)/0.971).round-@donation.amount)/100).round%>.<%=(((@donation.amount+30)/0.971).round-@donation.amount)%100%> € (2.9% + 0.30 €)
-	</p>
-	<p>
-		SECURE CONNECTION - powered by Stripe
-	</p>
 </div>
